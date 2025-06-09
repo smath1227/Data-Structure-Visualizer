@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { useState } from "react";
+import { BSTVisualizer } from "./components/BSTVisualizer";
+import { AVLVisualizer } from "./components/AVLVisualizer";
+import { RBVisualizer  } from "./components/RBVisualizer";
+import "./index.css";
+
+const pageNames = {
+    BST: "Binary Search Tree",
+    AVL: "AVL Tree",
+    RB:  "Red-Black Tree",
+} as const;
+
+export default function App() {
+    const [page,    setPage]    = useState<keyof typeof pageNames>("BST");
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => setMenuOpen(o => !o);
+    const selectPage = (p: keyof typeof pageNames) => {
+        setPage(p);
+        setMenuOpen(false);
+    };
+
+    return (
+        <>
+            {/* Hamburger */}
+            <div
+                className={`hamburger ${menuOpen ? "open" : ""}`}
+                onClick={toggleMenu}
+            >
+                <div />
+                <div />
+                <div />
+            </div>
+
+            {/* Dropdown */}
+            <div className={`menu-dropdown ${menuOpen ? "open" : ""}`}>
+                <button onClick={() => selectPage("AVL")}>AVL Tree</button>
+                <button onClick={() => selectPage("BST")}>Binary Search Tree</button>
+                <button onClick={() => selectPage("RB")}>Red-Black Tree</button>
+            </div>
+
+            {/* Title */}
+            <h1>{pageNames[page]} Visualizer</h1>
+
+            {/* Main content */}
+            <main className="main-content">
+                {page === "BST" && <BSTVisualizer />}
+                {page === "AVL" && <AVLVisualizer />}
+                {page === "RB"  && <RBVisualizer  />}
+            </main>
+        </>
+    );
 }
-
-export default App;
