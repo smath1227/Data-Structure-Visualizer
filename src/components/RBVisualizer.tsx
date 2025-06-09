@@ -79,7 +79,7 @@ export function RBVisualizer() {
   };
 
   return (
-    <div className="rb-visualizer">
+    <>
       <div className="controls">
         <input type="number" placeholder="Enter key" ref={inputRef} />
         <button onClick={handleInsert}>Insert</button>
@@ -150,6 +150,6 @@ export function RBVisualizer() {
           ))}
         </svg>
       </div>
-    </div>
+    </>
   );
 }

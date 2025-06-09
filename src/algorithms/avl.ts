@@ -140,9 +140,16 @@ export class AVL {
 
     private _delete(node: AVLNode | null, key: number): AVLNode | null {
         // Standard BST delete
-        if (!node) return null;
-        if (key < node.key) node.left = this._delete(node.left, key);
-        else if (key > node.key) node.right = this._delete(node.right, key);
+        if (!node) {
+            return null;
+        }
+
+        if (key < node.key) {
+            node.left = this._delete(node.left, key);
+        }
+        else if (key > node.key) {
+            node.right = this._delete(node.right, key);
+        }
         else {
             // node to delete
             if (!node.left) return node.right;

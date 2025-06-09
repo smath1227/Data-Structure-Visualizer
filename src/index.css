@@ -18,7 +18,6 @@ body {
 }
 
 h1 {
-  margin-bottom: 1rem;
   font-size: 2.5rem;
   color: #333;
 }
@@ -91,7 +90,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 4rem;  /* clear space under hamburger */
+  padding-top: 1rem;  /* clear space under hamburger */
   overflow: auto;
 }
 
@@ -99,7 +98,7 @@ h1 {
 .controls {
   display: flex;
   gap: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   align-items: center;
   background: #fefefe;
   padding: 1rem;
@@ -198,7 +197,7 @@ h1 {
 
 /* ───── SVG Container ───── */
 .svg-container {
-  width: 100vw;
+  width: 95.9vw;
   height: 75vh;
   background: #fff;
   border-radius: 8px;
@@ -248,15 +247,3 @@ svg {
   cursor: pointer;
 }
 
-/* ───── Red-Black Specific Wrapper ───── */
-.rb-visualizer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.rb-visualizer .controls {
-  margin: 1rem 0;
-}
-.rb-visualizer .svg-container {
-  margin: 1rem 0;
-}
