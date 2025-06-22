@@ -87,12 +87,22 @@ export function BSTVisualizer() {
         if (inputRef.current) inputRef.current.value = "";
     };
 
+    const handleClear = () => {
+        tree.clear();
+        setPositions([]);
+        setTravs({ in: [], pre: [], post: [], lvl: [] });
+        setHighlightKey(null);
+        setCompareText("");
+        if (inputRef.current) inputRef.current.value = "";
+    };
+
     return (
         <>
             <div className="controls">
                 <input type="number" placeholder="Enter integer" ref={inputRef} />
                 <button onClick={handleInsert}>Insert</button>
                 <button onClick={handleDelete}>Delete</button>
+                <button onClick={handleClear}>Clear</button>
                 <div className="slider">
                     <label>Speed:</label>
                     <input

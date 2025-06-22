@@ -78,12 +78,22 @@ export function RBVisualizer() {
     if (inputRef.current) inputRef.current.value = "";
   };
 
+  const handleClear = () => {
+    tree.clear();
+    setPositions([]);
+    setTravs({ in: [], pre: [], post: [], lvl: [] });
+    setHighlightKey(null);
+    setCompareText("");
+    if (inputRef.current) inputRef.current.value = "";
+  };
+
   return (
     <>
       <div className="controls">
         <input type="number" placeholder="Enter key" ref={inputRef} />
         <button onClick={handleInsert}>Insert</button>
         <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleClear}>Clear</button>
         <div className="slider">
           <label>Speed:</label>
           <input

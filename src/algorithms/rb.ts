@@ -30,6 +30,10 @@ export class RedBlackTree {
         if (z) this.deleteNode(z);
     }
 
+    clear(): void {
+        this.root = null;
+    }
+
     // ── Traversals ──
     inorder(): number[] {
         const res: number[] = [];

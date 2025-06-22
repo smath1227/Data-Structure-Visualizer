@@ -48,12 +48,19 @@ export function TrieVisualizer() {
         if (inputRef.current) inputRef.current.value = '';
     };
 
+    const handleClear = () => {
+        trie.clear();
+        setPositions([]);
+        if (inputRef.current) inputRef.current.value = "";
+    };
+
     return (
         <>
             <div className="controls">
                 <input type="text" placeholder="Enter word" ref={inputRef} />
                 <button onClick={handleInsert}>Insert</button>
                 <button onClick={handleDelete}>Delete</button>
+                <button onClick={handleClear}>Clear</button>
                 <div className="slider">
                     <label>Speed:</label>
                     <input

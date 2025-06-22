@@ -15,6 +15,10 @@ export class BST {
         this.root = this._deleteRecursive(this.root, key);
     }
 
+    clear(): void {
+        this.root = null;
+    }
+
     inorder(): number[] {
         const result: number[] = [];
         (function dfs(node: BSTNode | null) {

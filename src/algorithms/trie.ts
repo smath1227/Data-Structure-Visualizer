@@ -67,6 +67,15 @@ export class Trie {
         return res;
     }
 
+    clear(): void {
+        this.root = {
+            char: '',
+            children: new Map(),
+            parent: null,
+            isEnd: false
+        };
+    }
+
     private _findNode(word: string): TrieNode | null {
         let node = this.root;
         for (const ch of word) {

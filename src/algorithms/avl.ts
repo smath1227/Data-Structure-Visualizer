@@ -16,6 +16,10 @@ export class AVL {
         this.root = this._delete(this.root, key);
     }
 
+    clear(): void {
+        this.root = null;
+    }
+
     // Traversals
     inorder(): number[] {
         const res: number[] = [];
